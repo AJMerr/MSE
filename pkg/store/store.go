@@ -52,5 +52,11 @@ func (s *Store) Del(key string) bool {
 
 // TODO(Austin): implement
 func (s *Store) Exists(key string) bool {
-	return false
+	if key == "" {
+		return false
+	}
+	s.mutex.RLock()
+	_, ok := s.data[key]
+	s.mutex.RUnlock()
+	return ok
 }
