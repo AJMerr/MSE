@@ -21,7 +21,16 @@ var ErrEmptyKey = errors.New("empty key")
 
 // TODO(Austin): implement
 func (s *Store) Get(key string) ([]byte, bool) {
-	return nil, false
+	if key == "" {
+		return nil, false
+	}
+	s.mutex.RLock()
+	v, ok := s.data[key]
+	s.mutex.RUnlock()
+	if !ok {
+		return nil, false
+	}
+	return bytes.Clone(v), true
 }
 
 // TODO(Austin): implement
