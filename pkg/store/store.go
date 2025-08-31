@@ -47,7 +47,16 @@ func (s *Store) Set(key string, value []byte) error {
 
 // TODO(Austin): implement
 func (s *Store) Del(key string) bool {
-	return false
+	if key == "" {
+		return false
+	}
+	s.mutex.Lock()
+	_, existed := s.data[key]
+	if existed {
+		delete(s.data, key)
+	}
+	s.mutex.Unlock()
+	return existed
 }
 
 // TODO(Austin): implement
