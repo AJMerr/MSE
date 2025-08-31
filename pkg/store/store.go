@@ -19,7 +19,7 @@ func NewStore() *Store {
 
 var ErrEmptyKey = errors.New("empty key")
 
-// TODO(Austin): implement
+// Function for Get
 func (s *Store) Get(key string) ([]byte, bool) {
 	if key == "" {
 		return nil, false
@@ -33,7 +33,7 @@ func (s *Store) Get(key string) ([]byte, bool) {
 	return bytes.Clone(v), true
 }
 
-// TODO(Austin): implement
+// Function for Set
 func (s *Store) Set(key string, value []byte) error {
 	if key == "" {
 		return ErrEmptyKey
@@ -45,7 +45,7 @@ func (s *Store) Set(key string, value []byte) error {
 	return nil
 }
 
-// TODO(Austin): implement
+// Function for Del
 func (s *Store) Del(key string) bool {
 	if key == "" {
 		return false
@@ -59,7 +59,7 @@ func (s *Store) Del(key string) bool {
 	return existed
 }
 
-// TODO(Austin): implement
+// Function for Exists
 func (s *Store) Exists(key string) bool {
 	if key == "" {
 		return false
