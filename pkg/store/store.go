@@ -69,3 +69,10 @@ func (s *Store) Exists(key string) bool {
 	s.mutex.RUnlock()
 	return ok
 }
+
+func (s *Store) Len() int {
+	s.mutex.RLock()
+	length := len(s.data)
+	s.mutex.RUnlock()
+	return length
+}
