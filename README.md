@@ -1,6 +1,6 @@
 # MSE - In Memory KV Store
 A tiny, thread-safe, binary-safe key–value store written in Go.
-Built as part of a multi-repo capstone (HTTP framework → KV store → reverse proxy → Todo app).
+Built as part of a multi-repo capstone you can see [here](https://github.com/AJMerr/NYMToDo).
 
 ## Features
 - Concurrent and safe: sync.RWMutex guards a Go map
@@ -12,7 +12,7 @@ Built as part of a multi-repo capstone (HTTP framework → KV store → reverse 
 - Race-detector clean: go test -race passes
 
 ## Installation
-`go get github.com/AJMerr/MSE/pkg/store`
+```go get github.com/AJMerr/MSE/pkg/store```
 
 ## Example Quick Start
 ```
